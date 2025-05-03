@@ -1,6 +1,7 @@
 import ArgumentParser
 
-struct SwiftGPIO: ParsableCommand {
+@main
+struct SwiftGPIO: AsyncParsableCommand {
 	static let configuration = CommandConfiguration(subcommands: [
 		ToggleCommand.self,
 	])
