@@ -1,0 +1,5 @@
+module CWiringPi {
+	header "WiringPi/wiringPi/wiringPi.h"
+	link "wiringPi"
+	export *
+}

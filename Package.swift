@@ -31,25 +31,16 @@ let package = Package(
 				"CWiringPi",
 			]
 		),
+		.systemLibrary(
+			name: "CWiringPi",
+			pkgConfig: "wiringpi",
+			providers: [
+				.apt(["wiringpi"]),
+			],
+		),
 		.testTarget(
 			name: "WiringPiTests",
 			dependencies: ["WiringPi"],
 		),
-		.target(
-			name: "CWiringPi",
-			exclude: [
-				"wiringPi/COPYING.LESSER",
-				"wiringPi/Makefile",
-				"wiringPi/noMoreStatic",
-				"wiringPi/test",
-			],
-			sources: [
-				"wiringPi",
-			],
-			publicHeadersPath: "wiringPi",
-			cSettings: [
-				.unsafeFlags(["-Wall"]),
-			],
-		)
 	]
 )
