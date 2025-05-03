@@ -1,7 +1,7 @@
 import CWiringPi
 
 public class Pin {
-	public init(address: Address, mode: Mode) {
+	init(address: Address, mode: Mode) {
 		self.address = address
 
 		value = digitalRead(from: address)
@@ -34,14 +34,14 @@ public class Pin {
 		case low
 		case high
 
-		var toggled: Self {
+		public var toggled: Self {
 			switch self {
 			case .high: .low
 			case .low: .high
 			}
 		}
 
-		mutating func toggle() {
+		public mutating func toggle() {
 			self = toggled
 		}
 	}
