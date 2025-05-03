@@ -1,2 +1,5 @@
-// The Swift Programming Language
-// https://docs.swift.org/swift-book
+import CWiringPi
+
+public func bar() -> Int32 {
+	return WPI_MODE_PINS
+}
