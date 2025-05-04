@@ -9,17 +9,23 @@ private extension Int32 {
 public enum I2C {
 	public struct FileHandle {
 		let address: Int32
+
+		init?(address: Int32) {
+			guard address >= 0
+			else { return nil }
+			self.address = address
+		}
 	}
 
 	/// Opens the specific I2C device.
 	///
 	/// Note that ``setup(deviceId:)`` calls this internally depending on the GPIO layout.
-	public static func setupInterface(device: String, deviceId: Int32) -> FileHandle {
+	public static func setupInterface(device: String, deviceId: Int32) -> FileHandle? {
 		.init(address: wiringPiI2CSetupInterface(device, deviceId))
 	}
 
 	/// Opens the default I2C for the current board.
-	public static func setup(deviceId: Int32) -> FileHandle {
+	public static func setup(deviceId: Int32) -> FileHandle? {
 		.init(address: wiringPiI2CSetup(deviceId))
 	}
 
