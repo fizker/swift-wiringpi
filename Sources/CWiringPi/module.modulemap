@@ -1,5 +1,6 @@
 module CWiringPi {
 	header "WiringPi/wiringPi/wiringPi.h"
+	header "WiringPi/wiringPi/wiringPiI2C.h"
 	link "wiringPi"
 	export *
 }
