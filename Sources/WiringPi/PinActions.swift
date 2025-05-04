@@ -12,3 +12,7 @@ public func digitalRead(from address: Pin.Address) -> Pin.Value {
 public func change(mode: Pin.Mode, for address: Pin.Address) {
 	CWiringPi.pinMode(address, mode.rawValue)
 }
+
+public func change(pull: Pin.Pull, for address: Pin.Address) {
+	CWiringPi.pullUpDnControl(address, pull.rawValue)
+}

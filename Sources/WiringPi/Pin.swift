@@ -31,6 +31,33 @@ public enum Pin {
 		case pwmToneOutput
 		case off
 	}
+
+	public enum Pull {
+		case off
+		case down
+		case up
+	}
+}
+
+extension Pin.Pull: RawRepresentable {
+	public typealias RawValue = Int32
+
+	public init?(rawValue: RawValue) {
+		switch rawValue {
+		case PUD_OFF: self = .off
+		case PUD_DOWN: self = .down
+		case PUD_UP: self = .up
+		default: return nil
+		}
+	}
+
+	public var rawValue: RawValue {
+		switch self {
+		case .off: PUD_OFF
+		case .down: PUD_DOWN
+		case .up: PUD_UP
+		}
+	}
 }
 
 extension Pin.Value: RawRepresentable {
