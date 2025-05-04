@@ -1,29 +1,29 @@
 import CWiringPi
 
-enum HardwarePulseWidthModulation {
-	public func write(toneFrequency: Int32, to pin: Pin.Address) {
+public enum HardwarePulseWidthModulation {
+	public static func write(toneFrequency: Int32, to pin: Pin.Address) {
 		pwmToneWrite(pin, toneFrequency)
 	}
-	public func set(mode: Mode) {
+	public static func set(mode: Mode) {
 		pwmSetMode(mode.rawValue)
 	}
-	public func set(range: UInt32) {
+	public static func set(range: UInt32) {
 		pwmSetRange(range)
 	}
-	public func setClock(divisor: Int32) {
+	public static func setClock(divisor: Int32) {
 		pwmSetClock(divisor)
 	}
-	public func write(value: Int32, to pin: Pin.Address) {
+	public static func write(value: Int32, to pin: Pin.Address) {
 		pwmWrite(pin, value)
 	}
 
-	enum Mode {
+	public enum Mode {
 		case markSpace
 		case balanced
 	}
 }
 
-extension HardwarePulseWidthModulation.Mode: RawRepresentable {
+extension HardwarePulseWidthModulation.Mode {
 	init?(rawValue: Int32) {
 		switch rawValue {
 		case PWM_MODE_MS: self = .markSpace

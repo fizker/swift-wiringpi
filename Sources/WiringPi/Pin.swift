@@ -39,10 +39,8 @@ public enum Pin {
 	}
 }
 
-extension Pin.Pull: RawRepresentable {
-	public typealias RawValue = Int32
-
-	public init?(rawValue: RawValue) {
+extension Pin.Pull {
+	init?(rawValue: Int32) {
 		switch rawValue {
 		case PUD_OFF: self = .off
 		case PUD_DOWN: self = .down
@@ -51,7 +49,7 @@ extension Pin.Pull: RawRepresentable {
 		}
 	}
 
-	public var rawValue: RawValue {
+	var rawValue: Int32 {
 		switch self {
 		case .off: PUD_OFF
 		case .down: PUD_DOWN
@@ -60,8 +58,8 @@ extension Pin.Pull: RawRepresentable {
 	}
 }
 
-extension Pin.Value: RawRepresentable {
-	public init?(rawValue: Int32) {
+extension Pin.Value {
+	init?(rawValue: Int32) {
 		switch rawValue {
 		case HIGH: self = .high
 		case LOW: self = .low
@@ -69,7 +67,7 @@ extension Pin.Value: RawRepresentable {
 		}
 	}
 
-	public var rawValue: Int32 {
+	var rawValue: Int32 {
 		switch self {
 		case .high: HIGH
 		case .low: LOW
@@ -77,8 +75,8 @@ extension Pin.Value: RawRepresentable {
 	}
 }
 
-extension Pin.Mode: RawRepresentable {
-	public init?(rawValue: Int32) {
+extension Pin.Mode {
+	init?(rawValue: Int32) {
 		switch rawValue {
 		case INPUT: self = .input
 		case OUTPUT: self = .output
@@ -94,7 +92,7 @@ extension Pin.Mode: RawRepresentable {
 		}
 	}
 
-	public var rawValue: Int32 {
+	var rawValue: Int32 {
 		switch self {
 		case .input: INPUT
 		case .output: OUTPUT
