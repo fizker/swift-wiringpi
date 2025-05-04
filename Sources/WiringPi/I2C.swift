@@ -23,14 +23,14 @@ public enum I2C {
 		.init(address: wiringPiI2CSetup(deviceId))
 	}
 
-	public static func read(_ fd: FileHandle) -> Int32? {
-		wiringPiI2CRead(fd.address).guardSuccess
+	public static func read(_ fd: FileHandle) -> UInt8? {
+		wiringPiI2CRead(fd.address).guardSuccess.map(UInt8.init)
 	}
-	public static func readReg8(_ fd: FileHandle, register: Int32) -> Int32? {
-		wiringPiI2CReadReg8(fd.address, register).guardSuccess
+	public static func readReg8(_ fd: FileHandle, register: Int32) -> UInt8? {
+		wiringPiI2CReadReg8(fd.address, register).guardSuccess.map(UInt8.init)
 	}
-	public static func readReg16(_ fd: FileHandle, register: Int32) -> Int32? {
-		wiringPiI2CReadReg16(fd.address, register).guardSuccess
+	public static func readReg16(_ fd: FileHandle, register: Int32) -> UInt16? {
+		wiringPiI2CReadReg16(fd.address, register).guardSuccess.map(UInt16.init)
 	}
 
 	// Ignored for now because the pointers complicate things
@@ -41,14 +41,14 @@ public enum I2C {
 //		wiringPiI2CRawRead(fd.address, uint8_t *values, uint8_t size)
 //	}
 
-	public static func write(_ fd: FileHandle, data: Int32) -> Int32 {
-		wiringPiI2CWrite(fd.address, data)
+	public static func write(_ fd: FileHandle, data: UInt8) -> Int32 {
+		wiringPiI2CWrite(fd.address, .init(data))
 	}
-	public static func writeReg8(_ fd: FileHandle, register: Int32, data: Int32) -> Int32 {
-		wiringPiI2CWriteReg8(fd.address, register, data)
+	public static func writeReg8(_ fd: FileHandle, register: Int32, data: UInt8) -> Int32 {
+		wiringPiI2CWriteReg8(fd.address, register, .init(data))
 	}
-	public static func writeReg16(_ fd: FileHandle, register: Int32, data: Int32) -> Int32 {
-		wiringPiI2CWriteReg16(fd.address, register, data)
+	public static func writeReg16(_ fd: FileHandle, register: Int32, data: UInt16) -> Int32 {
+		wiringPiI2CWriteReg16(fd.address, register, .init(data))
 	}
 
 	// Ignored for now because the pointers complicate things
