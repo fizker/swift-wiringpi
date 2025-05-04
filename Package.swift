@@ -7,7 +7,6 @@ let package = Package(
 	products: [
 		.library(
 			name: "WiringPi",
-			type: .dynamic,
 			targets: ["WiringPi"],
 		),
 	],
