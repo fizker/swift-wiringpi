@@ -1,34 +1,7 @@
 import CWiringPi
 
-public class Pin {
-	init(address: Address, mode: Mode) {
-		self.address = address
-
-		value = digitalRead(from: address)
-		self.mode = mode
-
-		pinMode(pin: address, mode: mode)
-	}
-
-	public let address: Address
-
-	public var value: Value = .low {
-		didSet {
-			digitalWrite(value: value, to: address)
-		}
-	}
-
-	public var mode: Mode {
-		didSet {
-			pinMode(pin: address, mode: mode)
-		}
-	}
-
-	public enum Address {
-		case physical(Int32)
-		case gpio(Int32)
-		case wiringPi(Int32)
-	}
+public enum Pin {
+	public typealias Address = Int32
 
 	public enum Value {
 		case low
