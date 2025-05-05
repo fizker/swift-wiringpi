@@ -4,7 +4,7 @@ void piGpioLayoutOops (const char *why)
 {}
 
 int wiringPiFailure (int fatal, const char *message, ...)
-{}
+{ return 0; }
 
 void wiringPiVersion	(int *major, int *minor)
 {}
@@ -28,27 +28,27 @@ int wiringPiSetupGpioDevice(enum WPIPinType pinType)
          int  wiringPiGpioDeviceGetFd()
          { return 0; }
          void pinModeAlt          (int pin, int mode)
-         { return 0; }
+         { }
          enum WPIPinAlt getPinModeAlt       (int pin)
          { return 0; }
          void pinMode             (int pin, int mode)
-         { return 0; }
+         { }
          void pullUpDnControl     (int pin, int pud)
-         { return 0; }
+         { }
          int  digitalRead         (int pin)
          { return 0; }
          void digitalWrite        (int pin, int value)
-         { return 0; }
+         { }
 unsigned int  digitalRead8        (int pin)
 { return 0; }
          void digitalWrite8       (int pin, int value)
-         { return 0; }
+         { }
          void pwmWrite            (int pin, int value)
-         { return 0; }
+         { }
          int  analogRead          (int pin)
          { return 0; }
          void analogWrite         (int pin, int value)
-         { return 0; }
+         { }
 
 // PiFace specifics
 //	(Deprecated)
