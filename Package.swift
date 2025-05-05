@@ -23,11 +23,9 @@ let package = Package(
 				.targetItem(name: "CWiringPiReal", condition: .when(platforms: [ .linux ])),
 				.targetItem(name: "CWiringPiFake", condition: .when(platforms: [ .macOS ])),
 			],
-			path: "Sources/CWiringPiUmbrella",
 		),
 		.systemLibrary(
 			name: "CWiringPiReal",
-			path: "Sources/CWiringPi",
 			pkgConfig: "wiringpi",
 			providers: [
 				.apt(["wiringpi"]),
