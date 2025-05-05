@@ -14,8 +14,9 @@ let package = Package(
 		.target(
 			name: "WiringPi",
 			dependencies: [
-				"CWiringPi",
-			]
+				.targetItem(name: "CWiringPi", condition: .when(platforms: [ .linux ])),
+				.targetItem(name: "CWiringPiFake", condition: .when(platforms: [ .macOS ])),
+			],
 		),
 		.systemLibrary(
 			name: "CWiringPi",
@@ -23,6 +24,14 @@ let package = Package(
 			providers: [
 				.apt(["wiringpi"]),
 			],
+		),
+		.target(
+			name: "CWiringPiFake",
+			sources: [
+				"wiringPi.c",
+				"wiringPiI2C.c",
+			],
+			publicHeadersPath: "WiringPi/wiringPi",
 		),
 		.testTarget(
 			name: "WiringPiTests",
