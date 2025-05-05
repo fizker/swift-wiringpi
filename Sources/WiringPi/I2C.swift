@@ -1,9 +1,4 @@
-#if canImport(CWiringPi)
 import CWiringPi
-#endif
-#if canImport(CWiringPiFake)
-import CWiringPiFake
-#endif
 
 private extension Int32 {
 	var guardSuccess: Int32? {

@@ -1,9 +1,4 @@
-#if canImport(CWiringPi)
 import CWiringPi
-#endif
-#if canImport(CWiringPiFake)
-import CWiringPiFake
-#endif
 
 public func digitalWrite(value: Pin.Value, to address: Pin.Address) {
 	digitalWrite(address, value.rawValue)

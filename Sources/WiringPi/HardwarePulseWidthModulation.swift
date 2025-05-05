@@ -1,9 +1,4 @@
-#if canImport(CWiringPi)
 import CWiringPi
-#endif
-#if canImport(CWiringPiFake)
-import CWiringPiFake
-#endif
 
 public enum HardwarePulseWidthModulation {
 	public static func write(toneFrequency: Int32, to pin: Pin.Address) {

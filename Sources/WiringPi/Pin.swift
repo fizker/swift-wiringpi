@@ -1,9 +1,4 @@
-#if canImport(CWiringPi)
 import CWiringPi
-#endif
-#if canImport(CWiringPiFake)
-import CWiringPiFake
-#endif
 
 public enum Pin {
 	public typealias Address = Int32
